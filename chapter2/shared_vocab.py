@@ -5,8 +5,8 @@ import spacy
 def get_lexeme(word: str) -> tuple[str, Any, Any]:
     """
     Lexemes are entries in vocabulary context independent
-    :param word:
-    :return:
+    :param word: word to get lexeme
+    :return: text, orth and is_alpha from lexeme
     """
     lexeme = nlp.vocab[word]
     return lexeme.text, lexeme.orth, lexeme.is_alpha
