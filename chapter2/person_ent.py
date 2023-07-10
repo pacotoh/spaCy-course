@@ -24,14 +24,20 @@ if __name__ == '__main__':
     doc = nlp('Me gusta David Bowie')
     words = [token.text for token in doc]
     spaces = get_spaces(doc.text)
-    print(spaces)
+
+    span_david_bowie = Span(doc, 2, 4, label='DAVID_BOWIE')
+    doc.ents = [span_david_bowie]
+
+    for ent in doc.ents:
+        print(ent.text)
+
+    for token in doc:
+        print(token.text, token.pos_)
+
+    for ent in doc.ents:
+        print(ent.text)
 
     doc = Doc(nlp.vocab, words=words, spaces=spaces)
     # Adding new Span to the doc 'DAVID BOWIE'
     span_david_bowie = Span(doc, 2, 4, label='DAVID_BOWIE')
     doc.ents = [span_david_bowie]
-
-    for ent in doc.ents:
-        print(ent.text, ent.label_)
-
-    print(get_spaces('Me gusta  David Bowie'))
