@@ -46,5 +46,3 @@ if __name__ == '__main__':
     for match_id, start, end in matches:
         span = doc[start:end]
         print(span.text, span.root, span.root.head)
-
-
